@@ -1,21 +1,4 @@
-# TypeScript Package Starter
+# HBP Notification
 
-TypeScript boilerplate for NPM or Github Packages
+package for handle notification managemnt (channel, subscription), for multiple APP
 
-## Build project
-
-```sh
-npm run build
-```
-
-## Test pacakge
-
-```sh
-npm test
-```
-
-## Deploy package
-
-```sh
-npm run deploy
-```

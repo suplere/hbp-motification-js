@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-      "lib": ["es2017"],
+      "lib": ["es2017", "dom"],
       "module": "commonjs",
       "noImplicitReturns": true,    
       "esModuleInterop": true,
@@ -9,7 +9,7 @@
       "target": "es5",
       "declaration": true,
       "types": [
-        "mocha", "node"
+        "mocha", "node", "chai"
       ]
     },
     "compileOnSave": true,

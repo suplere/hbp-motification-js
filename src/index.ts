@@ -1,3 +1,2 @@
-export const helloWorld = () => {
-    return 'Hello from pakage!'
-}
+export * from './hasura-notification-client'
+export * from './hasura-notification-api'
