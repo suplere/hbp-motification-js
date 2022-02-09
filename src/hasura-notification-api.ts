@@ -27,14 +27,17 @@ export class HasuraNotificationApi {
       timeout: 10000,
       headers: {
         ...this.generateApplicationHeaders(),
-        ...this.generateAuthHeaders(),
       },
     });
   }
 
   public async generateVAPIDKeys(): Promise<GenerateVAPIDKeysResponse> {
     try {
-      const res = await this.httpClient.get("/generateVAPIDKeys");
+      const res = await this.httpClient.get("/generateVAPIDKeys", {
+        headers: {
+          ...this.generateAuthHeaders(),
+        },
+      });
       return {
         data: res.data,
         error: null,
@@ -52,7 +55,11 @@ export class HasuraNotificationApi {
       return { users_email: null, webpushes: [] };
     }
     try {
-      const res = await this.httpClient.get("/getUserNotifications");
+      const res = await this.httpClient.get("/getUserNotifications", {
+        headers: {
+          ...this.generateAuthHeaders(),
+        },
+      });
       return {
         users_email: res.data.users_email,
         webpushes: res.data.webpushed,
@@ -71,7 +78,11 @@ export class HasuraNotificationApi {
     try {
       const res = await this.httpClient.post(
         "/setUserWebPushNotifications",
-        params
+        params, {
+        headers: {
+          ...this.generateAuthHeaders(),
+        },
+      }
       );
       return { subscription: res.data, error: null };
     } catch (error) {
@@ -87,10 +98,18 @@ export class HasuraNotificationApi {
     }
     const { email } = this.user;
     try {
-      const res = await this.httpClient.post("/setUserEmailNotifications", {
-        email,
-        tags,
-      });
+      const res = await this.httpClient.post(
+        "/setUserEmailNotifications",
+        {
+          email,
+          tags,
+        },
+        {
+          headers: {
+            ...this.generateAuthHeaders(),
+          },
+        }
+      );
       return { subscription: res.data, error: null };
     } catch (error) {
       return { subscription: null, error };
@@ -106,7 +125,12 @@ export class HasuraNotificationApi {
     try {
       const res = await this.httpClient.post(
         "/deleteUserWebPushNotifications",
-        { id }
+        { id },
+        {
+          headers: {
+            ...this.generateAuthHeaders(),
+          },
+        }
       );
       return { deletedId: res.data.id, error: null };
     } catch (error) {
@@ -121,9 +145,17 @@ export class HasuraNotificationApi {
       return { deletedId: null, error: new Error("User not authenticated") };
     }
     try {
-      const res = await this.httpClient.post("/deleteUserEmailNotifications", {
-        id,
-      });
+      const res = await this.httpClient.post(
+        "/deleteUserEmailNotifications",
+        {
+          id,
+        },
+        {
+          headers: {
+            ...this.generateAuthHeaders(),
+          },
+        }
+      );
       return { deletedId: res.data.id, error: null };
     } catch (error) {
       return { deletedId: null, error };
@@ -139,7 +171,12 @@ export class HasuraNotificationApi {
     try {
       const res = await this.httpClient.post(
         "/setTagsUserWebPushNotifications",
-        params
+        params,
+        {
+          headers: {
+            ...this.generateAuthHeaders(),
+          },
+        }
       );
       return { subscription: res.data, error: null };
     } catch (error) {
@@ -156,7 +193,12 @@ export class HasuraNotificationApi {
     try {
       const res = await this.httpClient.post(
         "/setTagsUserEmailNotifications",
-        params
+        params,
+        {
+          headers: {
+            ...this.generateAuthHeaders(),
+          },
+        }
       );
       return { subscription: res.data, error: null };
     } catch (error) {
