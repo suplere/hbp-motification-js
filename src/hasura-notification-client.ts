@@ -5,6 +5,7 @@ import {
   SetWebPusNotificationPayload,
   Tags,
   UpdatNotificationTagsParams,
+  User,
   UserEmail,
   UserSubscription,
 } from "./utils/types";
@@ -352,5 +353,13 @@ export class HasuraNotificationClient {
       console.error(error);
       return null;
     }
+  }
+
+  public setAccessToken(accessToken: string | undefined): void {
+    this.api.setAccessToken(accessToken);
+  }
+
+  public setCurrentUser(user: User | null): void {
+    this.api.setCurrentUser(user);
   }
 }
