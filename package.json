@@ -1,6 +1,6 @@
 {
   "name": "@suplere/hbp-notification-js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Package for handle notification via HBP",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,7 +19,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/suplere/hbp-motification-js.git"
+    "url": "git+https://github.com/suplere/hbp-notification-js.git"
   },
   "devDependencies": {
     "@types/chai": "^4.3.0",
