@@ -1,6 +1,6 @@
 {
   "name": "@suplere/hbp-notification-js",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Package for handle notification via HBP",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

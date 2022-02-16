@@ -357,6 +357,7 @@ export class HasuraNotificationClient {
 
   public setAccessToken(accessToken: string | undefined): void {
     this.api.setAccessToken(accessToken);
+    this.getUserNotifications();
   }
 
   public setCurrentUser(user: User | null): void {
